@@ -14,7 +14,11 @@ export default class ToDoListItem extends Component {
             itemStatus = 'Suspended'; break;
         }
 
-        return <li>{this.props.item.title}<span>{itemStatus}</span></li>;
+        return <li>
+            {this.props.item.title} <span>{itemStatus}</span> - {this.props.item.id}<br/>
+            <button onClick={this.props.delete}>Delete</button>
+            <button onClick={this.props.edit}>Edit</button>
+        </li>;
     }
 }
 

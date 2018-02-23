@@ -18,6 +18,7 @@ export default class App extends Component {
             mode: LIST_MODE
         };
         this.addItem = this.addItem.bind(this);
+        this.deleteItem = this.deleteItem.bind(this);
         this.saveItem = this.saveItem.bind(this);
         this.backToList = this.backToList.bind(this);
     }
@@ -27,27 +28,40 @@ export default class App extends Component {
             <h1>To-Do list!</h1>
             {this.state.mode === LIST_MODE &&
              <div>
-                 <ToDoList list={this.state.list}/>
+                 <ToDoList list={this.state.list} delete={this.deleteItem}
+                     edit={this.addItem} />
                  <button onClick={this.addItem}>Add</button>
              </div>
             }
             {this.state.mode === EDIT_MODE &&
-             <EditItem submit={this.saveItem} cancel={this.backToList}/>}
+             <EditItem item={this.state.curItem} submit={this.saveItem}
+                 cancel={this.backToList}/>}
         </div>;
     }
 
-    addItem() {
-        this.setState({ mode: EDIT_MODE } );
+    deleteItem(id) {
+        this.setState({
+            list: this.state.list.filter((v) => v.id !== id),
+            mode: LIST_MODE
+        });
+    }
+
+    addItem(item) {
+        this.setState({ mode: EDIT_MODE, curItem: item} );
     }
 
     backToList() {
         this.setState({ mode: LIST_MODE });
     }
 
-    saveItem(title, status) {
+    saveItem(title, status, id) {
         let list = [...this.state.list];
-        let newId = 1 + list.reduce((res, v) => Math.max(v, res), 0);
-        list.push({id: newId, title: title, status: status});
+        if (id) {
+            list = list.filter((v) => v.id !== id);
+        } else {
+            id = 1 + list.reduce((res, v) => Math.max(v.id, res), 0);
+        }
+        list.push({id: id, title: title, status: status});
         this.setState({
             list: list,
             mode: LIST_MODE

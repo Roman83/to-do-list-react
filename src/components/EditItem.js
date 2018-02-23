@@ -5,7 +5,7 @@ import * as status from '../constants/ItemStatus';
 export default class EditItem extends Component {
     constructor(props) {
         super(props);
-        this.state = { status: this.props.status };
+        this.state = { status: this.props.item.status };
         this.saveItem = this.saveItem.bind(this);
         this.changeStatus = this.changeStatus.bind(this);
     }
@@ -15,7 +15,8 @@ export default class EditItem extends Component {
     }
     
     saveItem() {
-        this.props.submit(this.title.value, this.state.status);
+        const item = this.props.item || {};
+        this.props.submit(this.title.value, this.state.status, item.id);
     }
 
     changeStatus(e) {
@@ -23,10 +24,11 @@ export default class EditItem extends Component {
     }
     
     render() {
+        const item = this.props.item || {};
         return <form>
             <input type='text'
                 ref={(input) => { this.title = input; }}
-                defaultValue={this.props.title} />
+                defaultValue={item.title} />
             <label>
                 <input type="radio"
                     value={status.ACTIVE}
