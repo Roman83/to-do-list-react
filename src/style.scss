@@ -1,3 +1,5 @@
+$max-width: 400px;
+
 li {
    padding: 10px;
    border-style: solid;
@@ -55,7 +57,25 @@ li.suspended .title {
 
 ul {
    list-style-type: none;
-   max-width: 400px;
+   max-width: $max-width;
    padding: 0;
 }
 
+form {
+   max-width: $max-width;
+
+   .title {
+      width: 100%;
+      box-sizing: border-box;
+   }
+   button { width: 50% }
+}
+
+.radioStatus {
+   padding: 1em;
+   margin: 1em 0;
+
+   input {
+      margin-right: 1.5em;
+   }
+}

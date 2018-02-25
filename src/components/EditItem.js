@@ -5,7 +5,7 @@ import * as status from '../constants/ItemStatus';
 export default class EditItem extends Component {
     constructor(props) {
         super(props);
-        this.state = { status: this.props.item.status };
+        this.state = { status: this.props.item.status || status.ACTIVE };
         this.saveItem = this.saveItem.bind(this);
         this.changeStatus = this.changeStatus.bind(this);
     }
@@ -26,27 +26,30 @@ export default class EditItem extends Component {
     render() {
         const item = this.props.item || {};
         return <form>
-            <input type='text'
+            <input type='text' className='title' placeholder='Title'
                 ref={(input) => { this.title = input; }}
-                defaultValue={item.title} />
-            <label>
-                <input type="radio"
-                    value={status.ACTIVE}
-                    checked={status.ACTIVE === this.state.status}
-                    onChange={this.changeStatus} />
-            Active</label>
-            <label>
-                <input type="radio"
-                    value={status.SUSPENDED}
-                    checked={status.SUSPENDED === this.state.status} 
-                    onChange={this.changeStatus} />
-            Suspended</label>
-            <label>
-                <input type="radio"
-                    value={status.COMPLETED}
-                    checked={status.COMPLETED === this.state.status}
-                    onChange={this.changeStatus} />
-            Closed</label>
+                defaultValue={item.title} /><br/>
+            <fieldset className='radioStatus'>
+                <legend>Status</legend>
+                <label>
+                    <input type="radio"
+                        value={status.ACTIVE}
+                        checked={status.ACTIVE === this.state.status}
+                        onChange={this.changeStatus} />
+                    Active</label><br/>
+                <label>
+                    <input type="radio"
+                        value={status.SUSPENDED}
+                        checked={status.SUSPENDED === this.state.status} 
+                        onChange={this.changeStatus} />
+                Suspended</label><br/>
+                <label>
+                    <input type="radio"
+                        value={status.COMPLETED}
+                        checked={status.COMPLETED === this.state.status}
+                        onChange={this.changeStatus} />
+                Closed</label><br/>
+            </fieldset>
             <button type='submit' onClick={this.saveItem}>OK</button>
             <button onClick={this.props.cancel}>Cancel</button>
         </form>;
