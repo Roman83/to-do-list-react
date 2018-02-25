@@ -1,2 +1,61 @@
+li {
+   padding: 10px;
+   border-style: solid;
+   border-color: green;
+   border-width: 0 0 1px;
 
+   .status {
+      font-size: 0.8em;
+      background: lightgrey;
+      padding: 0.3em 1em;
+      border-radius: 1em;
+      float: right;
+   }
+
+   .itemControls {
+      clear: both;
+      padding-top: 0.5em;
+      display: none;
+      text-align: right;
+
+      button {
+         border-radius: 0;
+         padding: 0.3em 1em;
+      }
+      button:first-child {
+         border-radius: 1em 0 0 1em;
+      }
+      button:last-child {
+         border-radius: 0 1em 1em 0;
+      }
+   }
+}
+
+li:nth-child(1) {
+   border-width: 1px 0;
+}
+
+li:hover {
+   .itemControls {
+      display: block;
+   }
+}
+
+li.active .title {
+   font-weight: bold;
+}
+
+li.completed .title {
+   text-decoration: line-through;
+}
+
+li.suspended .title {
+   color: grey;
+}
+
+ul {
+   list-style-type: none;
+   max-width: 400px;
+   padding: 0;
+}
 

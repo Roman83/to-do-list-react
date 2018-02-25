@@ -5,19 +5,30 @@ import * as status from '../constants/ItemStatus';
 export default class ToDoListItem extends Component {
     render() {
         let itemStatus = '';
+        let className = '';
         switch(this.props.item.status) {
         case status.ACTIVE:
-            itemStatus = 'Active'; break;
+            itemStatus = 'Active';
+            className = 'active';
+            break;
         case status.COMPLETED:
-            itemStatus = 'Completed'; break;
+            itemStatus = 'Completed';
+            className = 'completed';
+            break;
         case status.SUSPENDED:
-            itemStatus = 'Suspended'; break;
+            itemStatus = 'Suspended';
+            className = 'suspended';
+            break;
         }
 
-        return <li>
-            {this.props.item.title} <span>{itemStatus}</span> - {this.props.item.id}<br/>
-            <button onClick={this.props.delete}>Delete</button>
-            <button onClick={this.props.edit}>Edit</button>
+        return <li className={className}>
+            <span className='title'>{this.props.item.title}</span>
+            <span className="status">{itemStatus}</span>
+            <br/>
+            <div className="itemControls">
+                <button onClick={this.props.delete}>Delete</button>
+                <button onClick={this.props.edit}>Edit</button>
+            </div>
         </li>;
     }
 }
