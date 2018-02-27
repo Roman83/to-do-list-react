@@ -67,8 +67,14 @@ form {
    .title {
       width: 100%;
       box-sizing: border-box;
+      font-size: 1.2em;
    }
-   button { width: 50% }
+
+   button {
+      width: 50%;
+      vertical-align: middle;
+      font-size: 1.2em;
+   }
 }
 
 .radioStatus {
@@ -79,3 +85,12 @@ form {
       margin-right: 1.5em;
    }
 }
+
+.addButton { font-size: 1.2em; }
+
+.material-icons {
+   vertical-align: middle;
+   padding-right: 0.5em;
+}
+
+.material-icons.md-12 { font-size: 1.2em; }

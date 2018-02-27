@@ -26,8 +26,12 @@ export default class ToDoListItem extends Component {
             <span className="status">{itemStatus}</span>
             <br/>
             <div className="itemControls">
-                <button onClick={this.props.delete}>Delete</button>
-                <button onClick={this.props.edit}>Edit</button>
+                <button onClick={this.props.delete}>
+                    <i className='material-icons'>delete_forever</i>Delete
+                </button>
+                <button onClick={this.props.edit}>
+                    <i className='material-icons'>mode_edit</i>Edit
+                </button>
             </div>
         </li>;
     }

@@ -30,7 +30,9 @@ export default class App extends Component {
              <div>
                  <ToDoList list={this.state.list} delete={this.deleteItem}
                      edit={this.addItem} />
-                 <button onClick={this.addItem}>Add</button>
+                 <button className='addButton' onClick={this.addItem}>
+                     <i className='material-icons md-12'>add_circle</i>Add
+                 </button>
              </div>
             }
             {this.state.mode === EDIT_MODE &&

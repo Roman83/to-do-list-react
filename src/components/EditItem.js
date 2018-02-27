@@ -50,8 +50,12 @@ export default class EditItem extends Component {
                         onChange={this.changeStatus} />
                 Closed</label><br/>
             </fieldset>
-            <button type='submit' onClick={this.saveItem}>OK</button>
-            <button onClick={this.props.cancel}>Cancel</button>
+            <button type='submit' onClick={this.saveItem}>
+                <i className='material-icons md-12'>check_circle</i>OK
+            </button>
+            <button onClick={this.props.cancel}>
+                <i className='material-icons md-12'>cancel</i>Cancel
+            </button>
         </form>;
     }
 }
