@@ -6,17 +6,18 @@ export default class ToDoListItem extends Component {
     render() {
         let itemStatus = '';
         let className = '';
+        const lang = this.props.lang;
         switch(this.props.item.status) {
         case status.ACTIVE:
-            itemStatus = 'Active';
+            itemStatus = lang.active;
             className = 'active';
             break;
         case status.COMPLETED:
-            itemStatus = 'Completed';
+            itemStatus = lang.completed;
             className = 'completed';
             break;
         case status.SUSPENDED:
-            itemStatus = 'Suspended';
+            itemStatus = lang.suspended;
             className = 'suspended';
             break;
         }
@@ -27,10 +28,10 @@ export default class ToDoListItem extends Component {
             <br/>
             <div className="itemControls">
                 <button onClick={this.props.delete}>
-                    <i className='material-icons'>delete_forever</i>Delete
+                    <i className='material-icons'>delete_forever</i>{lang.del}
                 </button>
                 <button onClick={this.props.edit}>
-                    <i className='material-icons'>mode_edit</i>Edit
+                    <i className='material-icons'>mode_edit</i>{lang.edit}
                 </button>
             </div>
         </li>;

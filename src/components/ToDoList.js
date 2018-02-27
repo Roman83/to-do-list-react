@@ -7,7 +7,8 @@ export default class ToDoList extends Component {
         const list = this.props.list.map(
             (item) => <ToDoListItem key={item.id} item={item}
                 delete={() => { this.props.delete(item.id); }}
-                edit={() => this.props.edit(item)} />
+                edit={() => this.props.edit(item)}
+                lang={this.props.lang} />
         );
         return <ul>{list}</ul>;
     }
