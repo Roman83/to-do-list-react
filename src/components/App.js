@@ -42,7 +42,7 @@ export default class App extends Component {
             }
             {this.state.mode === EDIT_MODE &&
              <EditItem item={this.state.curItem} submit={this.saveItem}
-                 cancel={this.backToList}/>}
+                 cancel={this.backToList} lang={lang} />}
         </div>;
     }
 

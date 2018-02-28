@@ -7,7 +7,9 @@ const Lang = {
         status: 'Status',
         active: 'Active',
         suspended: 'Suspended',
-        completed: 'Closed'
+        completed: 'Closed',
+        ok: 'OK',
+        cancel: 'Cancel'
     },
     rus: {
         id: 'RUS',
@@ -17,7 +19,9 @@ const Lang = {
         status: 'Статус',
         active: 'Активно',
         suspended: 'Приостановлено',
-        completed: 'Завершено'
+        completed: 'Завершено',
+        ok: 'OK',
+        cancel: 'Отмена'
     }
 };
 

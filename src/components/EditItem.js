@@ -25,36 +25,39 @@ export default class EditItem extends Component {
     
     render() {
         const item = this.props.item || {};
+        const lang = this.props.lang;
         return <form>
             <input type='text' className='title' placeholder='Title'
                 ref={(input) => { this.title = input; }}
                 defaultValue={item.title} /><br/>
             <fieldset className='radioStatus'>
-                <legend>Status</legend>
+                <legend>{lang.status}</legend>
                 <label>
                     <input type="radio"
                         value={status.ACTIVE}
                         checked={status.ACTIVE === this.state.status}
                         onChange={this.changeStatus} />
-                    Active</label><br/>
+                    {lang.active}</label><br/>
                 <label>
                     <input type="radio"
                         value={status.SUSPENDED}
                         checked={status.SUSPENDED === this.state.status} 
                         onChange={this.changeStatus} />
-                Suspended</label><br/>
+                    {lang.suspended}</label><br/>
                 <label>
                     <input type="radio"
                         value={status.COMPLETED}
                         checked={status.COMPLETED === this.state.status}
                         onChange={this.changeStatus} />
-                Closed</label><br/>
+                    {lang.completed}</label><br/>
             </fieldset>
             <button type='submit' onClick={this.saveItem}>
-                <i className='material-icons md-12'>check_circle</i>OK
+                <i className='material-icons md-12'>check_circle</i>
+                {lang.ok}
             </button>
             <button onClick={this.props.cancel}>
-                <i className='material-icons md-12'>cancel</i>Cancel
+                <i className='material-icons md-12'>cancel</i>
+                {lang.cancel}
             </button>
         </form>;
     }
