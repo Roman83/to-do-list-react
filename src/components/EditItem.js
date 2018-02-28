@@ -63,15 +63,20 @@ export default class EditItem extends Component {
     }
 }
 
-EditItem.defaultProps = {
-    title: '',
-    status: status.ACTIVE
-};
-
 EditItem.propTypes = {
     id: PropTypes.number,
-    title: PropTypes.string,
-    status: PropTypes.string,
+    item: PropTypes.object,
     submit: PropTypes.func.isRequired,
-    cancel: PropTypes.func.isRequired
+    cancel: PropTypes.func.isRequired,
+    lang: PropTypes.object.isRequired
 };
+
+
+
+
+
+
+
+
+
+

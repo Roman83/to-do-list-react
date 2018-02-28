@@ -15,5 +15,8 @@ export default class ToDoList extends Component {
 }
 
 ToDoList.propTypes = {
-    list: PropTypes.array.isRequired
+    list: PropTypes.array.isRequired,
+    delete: PropTypes.func.isRequired,
+    edit: PropTypes.func.isRequired,
+    lang: PropTypes.object.isRequired
 };
