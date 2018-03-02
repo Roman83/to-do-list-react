@@ -28,7 +28,7 @@ export default class App extends Component {
     
     render() {
         let lang = this.state.lang;
-        return <div>
+        return <div className='appContainer'>
             <h1>To-Do list!</h1>
             {this.state.mode === LIST_MODE &&
              <div>
@@ -37,7 +37,9 @@ export default class App extends Component {
                  <button className='addButton' onClick={this.addItem}>
                      <i className='material-icons md-12'>add_circle</i>{lang.add}
                  </button>
-                 <button onClick={this.changeLang}>{lang.id}</button>
+                 <button className='langButton' onClick={this.changeLang}>
+                     {lang.id}
+                 </button>
              </div>
             }
             {this.state.mode === EDIT_MODE &&
