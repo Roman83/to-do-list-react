@@ -2,6 +2,7 @@ const path = require('path');
 const autoprefixer = require('autoprefixer');
 const merge = require('webpack-merge');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const development = require('./dev.config.js');
 const production = require('./prod.config.js');
@@ -35,7 +36,12 @@ const common = {
         }]
     },
     plugins: [
-        new ExtractTextPlugin('style.css')
+        new ExtractTextPlugin('style.css'),
+        new CopyWebpackPlugin([{
+                from: 'index.html',
+                to: 'index.html',
+                toType: 'file'
+        },], {'copyUnmodified': true})
     ]
 };
 
